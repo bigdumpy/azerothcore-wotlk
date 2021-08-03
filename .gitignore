@@ -4,9 +4,6 @@
 
 /conf/*
 !/conf/dist
-/modules/*
-!/modules/*.md
-!/modules/*.sh
 /build*/
 /var/*
 !/var/build/.gitkeep
@@ -23,7 +20,7 @@
 /.env*
 /apps/joiner
 /deps/deno
-
+/changelog
 /docker-compose.override.yml
 
 !.gitkeep
@@ -92,3 +89,5 @@ local.properties
 #  !modules/yourmodule
 #
 # ==================
+
+
