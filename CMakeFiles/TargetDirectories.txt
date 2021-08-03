@@ -1,0 +1,9 @@
+/home/wow/azerothcore-wotlk/CMakeFiles/rebuild_cache.dir
+/home/wow/azerothcore-wotlk/CMakeFiles/edit_cache.dir
+/home/wow/azerothcore-wotlk/genrev/CMakeFiles/rebuild_cache.dir
+/home/wow/azerothcore-wotlk/genrev/CMakeFiles/edit_cache.dir
+/home/wow/azerothcore-wotlk/genrev/CMakeFiles/revision.h.dir
+/home/wow/azerothcore-wotlk/server/CMakeFiles/rebuild_cache.dir
+/home/wow/azerothcore-wotlk/server/CMakeFiles/edit_cache.dir
+/home/wow/azerothcore-wotlk/server/authserver/CMakeFiles/rebuild_cache.dir
+/home/wow/azerothcore-wotlk/server/authserver/CMakeFiles/edit_cache.dir

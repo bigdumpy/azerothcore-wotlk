@@ -2277,8 +2277,8 @@ InventoryResult Player::CanUseItem(Item* pItem, bool not_loading) const
                             break;
                     }
                 }
-                if (!allowEquip && GetSkillValue(itemSkill) == 0)
-                    return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
+                //if (!allowEquip && GetSkillValue(itemSkill) == 0)
+                //    return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
             }
 
             if (pProto->RequiredReputationFaction && uint32(GetReputationRank(pProto->RequiredReputationFaction)) < pProto->RequiredReputationRank)
@@ -2307,14 +2307,14 @@ InventoryResult Player::CanUseItem(ItemTemplate const* proto) const
 
         if (proto->RequiredSkill != 0)
         {
-            if (GetSkillValue(proto->RequiredSkill) == 0)
-                return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
-            else if (GetSkillValue(proto->RequiredSkill) < proto->RequiredSkillRank)
+            //if (GetSkillValue(proto->RequiredSkill) == 0)
+                //return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
+            if (GetSkillValue(proto->RequiredSkill) < proto->RequiredSkillRank)
                 return EQUIP_ERR_CANT_EQUIP_SKILL;
         }
 
-        if (proto->RequiredSpell != 0 && !HasSpell(proto->RequiredSpell))
-            return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
+        //if (proto->RequiredSpell != 0 && !HasSpell(proto->RequiredSpell))
+            //return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
 
         InventoryResult result = EQUIP_ERR_OK;
 
@@ -2364,21 +2364,21 @@ InventoryResult Player::CanRollForItemInLFG(ItemTemplate const* proto, WorldObje
     if ((proto->AllowableClass & getClassMask()) == 0 || (proto->AllowableRace & getRaceMask()) == 0)
         return EQUIP_ERR_YOU_CAN_NEVER_USE_THAT_ITEM;
 
-    if (proto->RequiredSpell != 0 && !HasSpell(proto->RequiredSpell))
-        return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
+    //if (proto->RequiredSpell != 0 && !HasSpell(proto->RequiredSpell))
+        //return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
 
     if (proto->RequiredSkill != 0)
     {
-        if (!GetSkillValue(proto->RequiredSkill))
-            return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
-        else if (GetSkillValue(proto->RequiredSkill) < proto->RequiredSkillRank)
+        //if (!GetSkillValue(proto->RequiredSkill))
+            //return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
+        if (GetSkillValue(proto->RequiredSkill) < proto->RequiredSkillRank)
             return EQUIP_ERR_CANT_EQUIP_SKILL;
     }
 
     uint8 _class = getClass();
 
-    if (proto->Class == ITEM_CLASS_WEAPON && GetSkillValue(item_weapon_skills[proto->SubClass]) == 0)
-        return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
+    //if (proto->Class == ITEM_CLASS_WEAPON && GetSkillValue(item_weapon_skills[proto->SubClass]) == 0)
+        //return EQUIP_ERR_NO_REQUIRED_PROFICIENCY;
 
     if (proto->Class == ITEM_CLASS_ARMOR && proto->SubClass > ITEM_SUBCLASS_ARMOR_MISC && proto->SubClass < ITEM_SUBCLASS_ARMOR_BUCKLER && proto->InventoryType != INVTYPE_CLOAK)
     {
