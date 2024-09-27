@@ -107,7 +107,8 @@ public:
             Talk(SAY_AGGRO);
             events.ScheduleEvent(EVENT_POISON_BOLT, urand(7000, 15000));
             events.ScheduleEvent(EVENT_RAIN_OF_FIRE, urand(8000, 18000));
-            events.ScheduleEvent(EVENT_FRENZY, urand(60000, 80000), 1);
+            // Disabled since it's not possible in solo play
+            // events.ScheduleEvent(EVENT_FRENZY, urand(60000, 80000), 1);
             events.SetPhase(1);
             if (pInstance)
             {
@@ -198,10 +199,11 @@ public:
                     break;
                 case EVENT_FRENZY:
                     if (!me->HasAura(RAID_MODE(SPELL_FRENZY_10, SPELL_FRENZY_25)))
-                    {
-                        Talk(SAY_FRENZY);
-                        Talk(EMOTE_FRENZY);
-                        me->CastSpell(me, RAID_MODE(SPELL_FRENZY_10, SPELL_FRENZY_25), true);
+                    {   
+                        // Removed due to solo play
+                        // Talk(SAY_FRENZY);
+                        // Talk(EMOTE_FRENZY);
+                        // me->CastSpell(me, RAID_MODE(SPELL_FRENZY_10, SPELL_FRENZY_25), true);
                         events.RepeatEvent(60000);
                     }
                     else

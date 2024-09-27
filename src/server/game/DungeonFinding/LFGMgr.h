@@ -34,7 +34,7 @@ namespace lfg
         LFG_TIME_BOOT                                = 120,
         LFG_TIME_PROPOSAL                            = 40,
         LFG_QUEUEUPDATE_INTERVAL                     = 8 * IN_MILLISECONDS,
-        LFG_SPELL_DUNGEON_COOLDOWN                   = 71328,
+        LFG_SPELL_DUNGEON_COOLDOWN                   = 0,
         LFG_SPELL_DUNGEON_DESERTER                   = 71041,
         LFG_SPELL_LUCK_OF_THE_DRAW                   = 72221,
         LFG_GROUP_KICK_VOTES_NEEDED                  = 3
@@ -533,6 +533,11 @@ namespace lfg
         void RBPacketBuildDifference(WorldPacket& differencePacket, uint32 dungeonId, uint32 deletedCounter, ByteBuffer& buffer_deleted, uint32 groupCounter, ByteBuffer& buffer_groups, uint32 playerCounter, ByteBuffer& buffer_players);
         void RBPacketBuildFull(WorldPacket& fullPacket, uint32 dungeonId, RBInternalInfoMap& infoMap);
 
+        /// Toggle LFG in debug mode
+        void ToggleSoloLFG();
+        /// Check if debug mode
+        bool IsSoloLFG() const { return m_isSoloLFG; }
+
         // LfgQueue
         /// Get last lfg state (NONE, DUNGEON or FINISHED_DUNGEON)
         LfgState GetOldState(ObjectGuid guid);
@@ -590,6 +595,8 @@ namespace lfg
         uint32 lastProposalId;                             ///< pussywizard, store it here because of splitting LFGMgr update into tasks
         uint32 m_raidBrowserUpdateTimer[2];                ///< pussywizard
         uint32 m_raidBrowserLastUpdatedDungeonId[2];       ///< pussywizard: for 2 factions
+
+        bool m_isSoloLFG;                                  ///< solo lfg
 
         LfgQueueContainer QueuesStore;                     ///< Queues
         LfgCachedDungeonContainer CachedDungeonMapStore;   ///< Stores all dungeons by groupType

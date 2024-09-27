@@ -5,10 +5,10 @@
 /conf/*
 !/conf/dist
 /modules/*
-!/modules/*.md
-!/modules/*.sh
-/build*/
-/var/*
+!/modules/.md
+!/modules/.sh
+/build/
+/var/
 !/var/build/.gitkeep
 !/var/ccache/.gitkeep
 /env/dist/*
@@ -38,16 +38,16 @@
 *.rej
 *~
 .hg/
-*.kdev*
+.kdev
 .DS_Store
 CMakeLists.txt.user
 *.bak
 *.patch
 *.diff
-*.REMOTE.*
-*.BACKUP.*
-*.BASE.*
-*.LOCAL.*
+.REMOTE.
+.BACKUP.
+.BASE.
+.LOCAL.
 
 #
 # IDE & other software
@@ -57,8 +57,8 @@ CMakeLists.txt.user
 # exclude in all levels
 nbproject/
 .sync.ffs_db
-*.kate-swp
-.browse.VC*
+.kate-swp
+.browse.VC
 .idea
 cmake-build-debug/*
 cmake-build-debug-coverage/*

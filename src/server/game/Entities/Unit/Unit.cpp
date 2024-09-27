@@ -1575,8 +1575,9 @@ void Unit::DealMeleeDamage(CalcDamageInfo* damageInfo, bool durabilityLoss)
         if (Probability > 40.0f)
             Probability = 40.0f;
 
-        if (roll_chance_f(std::max(0.0f, Probability)))
-            CastSpell(victim, 1604, true);
+        // Disable Daze Mechanic
+        // if (roll_chance_f(std::max(0.0f, Probability)))
+        //    CastSpell(victim, 1604, true);
     }
 
     if (GetTypeId() == TYPEID_PLAYER)

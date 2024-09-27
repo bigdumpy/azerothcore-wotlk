@@ -221,7 +221,7 @@ void WorldSession::HandleLfgPlayerLockInfoRequestOpcode(WorldPacket& /*recvData*
             data << uint8(0);
         }
     }
-    BuildPlayerLockDungeonBlock(data, lock);
+    // BuildPlayerLockDungeonBlock(data, lock);
     SendPacket(&data);
 }
 
